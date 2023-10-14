@@ -1,28 +1,25 @@
-import math
-def is_prime(num):
-    if num <= 1:
-        return False
-    if num <= 3:
-        return True
-    if num % 2 == 0 or num % 3 == 0:
-        return False
-    i = 5
-    while i * i <= num:
-        if num % i == 0 or num % (i + 2) == 0:
+t = int(input())
+
+a = []
+
+def check(n):
+    for i in n:
+        if int(i) % 2 == 1:
             return False
-        i += 6
     return True
 
-def sum_of_digits(number):
-    return sum(int(digit) for digit in str(number))
-num_tests = int(input())
+num = 2
+while num <= 888:
+    if check(str(num)):
+        tmp = str(num)
+        a.append(int(tmp + tmp[::-1]))
+    num += 2
 
-for _ in range(num_tests):
-    a, b = map(int, input().split())
-    gcd_ab = math.gcd(a, b)
-    sum_digits_gcd = sum_of_digits(gcd_ab)
-    
-    if is_prime(sum_digits_gcd):
-        print("YES")
-    else:
-        print("NO")
+while t > 0:
+    n = int(input())
+    for i in a:
+        if i >= n:
+            break
+        print(i, end = ' ')
+    print()
+    t -= 1
