@@ -9,3 +9,6 @@ t = int(input())
 for _ in range(t):
    n, b = map(int, input().split())
    print(convertBase(n, b))
+121212121212121212
+
+45678978
